@@ -10,9 +10,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
 
     private static final String BASE_URL = "";
-    private Retrofit mRetrofit;
+    private static Retrofit mRetrofit;
 
-    public Retrofit getApiClient() {
+    public static Retrofit getApiClient() {
         if (mRetrofit == null) {
             mRetrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)

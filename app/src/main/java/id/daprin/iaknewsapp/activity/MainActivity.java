@@ -1,7 +1,7 @@
 package id.daprin.iaknewsapp.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -10,16 +10,26 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import id.daprin.iaknewsapp.BuildConfig;
 import id.daprin.iaknewsapp.R;
 import id.daprin.iaknewsapp.adapter.NewsAdapter;
+import id.daprin.iaknewsapp.model.ApiResponse;
 import id.daprin.iaknewsapp.model.ArticlesItem;
+import id.daprin.iaknewsapp.rest.ApiClient;
+import id.daprin.iaknewsapp.rest.ApiService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     /*Recycler view perlu: VIewHolder, Adapter, LayoutManager */
-    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
     LinearLayoutManager mLinearLayoutManager;
     NewsAdapter mAdapter;
+
+    private static final String NEWS_SOURCE = "techcrunch";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    private List<ArticlesItem> GetDummyArticlesItem(){
+    private List<ArticlesItem> GetDummyArticlesItem() {
         List<ArticlesItem> result = new ArrayList<>();
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < 10; i++) {
             ArticlesItem item = new ArticlesItem();
             item.setTitle("Ini Merupakakan Title untuk menampilkan max line dari textview");
             item.setDescription("Ini merupakan deskripsi yang merupakan data random, yang bisa di copas. Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.");
@@ -46,5 +56,26 @@ public class MainActivity extends AppCompatActivity {
             result.add(item);
         }
         return result;
+    }
+
+    private void getData() {
+        ApiService apiService = ApiClient.getApiClient()
+                .create(ApiService.class);
+
+        Call<ApiResponse> apiResponseCall = apiService.getTechCrunchArticle(
+                NEWS_SOURCE, BuildConfig.NEWS_API_KEY
+        );
+
+        apiResponseCall.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+
+            }
+        });
     }
 }
