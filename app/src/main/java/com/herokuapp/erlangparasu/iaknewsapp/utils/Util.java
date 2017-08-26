@@ -1,4 +1,4 @@
-package id.daprin.iaknewsapp.utils;
+package com.herokuapp.erlangparasu.iaknewsapp.utils;
 
 
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.view.MenuItem;
 
-public class Utils {
+public class Util {
 
     public static boolean isSameDomain(String url, String url1) {
         return getRootDomainUrl(url.toLowerCase()).equals(getRootDomainUrl(url1.toLowerCase()));

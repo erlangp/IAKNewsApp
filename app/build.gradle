@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "id.daprin.iaknewsapp"
+        applicationId "com.herokuapp.erlangparasu.iaknewsapp"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "NEWS_API_KEY", NEWS_API_KEY)
+        buildConfigField("String", "NEWS_API_KEY", "\"$NEWS_API_KEY\"")
     }
     buildTypes {
         release {
@@ -19,9 +19,6 @@ android {
         }
     }
 }
-
-// https://newsapi.org/login
-// abd8e94f489045a38a11235cbf6afa42
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')

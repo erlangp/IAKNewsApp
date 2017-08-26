@@ -1,4 +1,4 @@
-package id.daprin.iaknewsapp;
+package com.herokuapp.erlangparasu.iaknewsapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("id.daprin.iaknewsapp", appContext.getPackageName());
+        assertEquals("com.herokuapp.erlangparasu.iaknewsapp", appContext.getPackageName());
     }
 }

@@ -1,18 +1,15 @@
-package id.daprin.iaknewsapp.rest;
+package com.herokuapp.erlangparasu.iaknewsapp.rest;
 
-import id.daprin.iaknewsapp.model.ApiResponse;
+import com.herokuapp.erlangparasu.iaknewsapp.models.ApiResponse;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-/**
- * Created by Bagus on 12/08/2017.
- */
-
 public interface ApiService {
 
     @GET("articles")
-    Call<ApiResponse> getTechCrunchArticle(
+    Call<ApiResponse> getArticles(
             @Query("source") String source,
             @Query("apiKey") String apiKey
     );
