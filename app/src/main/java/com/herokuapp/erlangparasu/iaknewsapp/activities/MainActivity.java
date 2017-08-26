@@ -28,7 +28,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements
         NewsAdapter.OnItemClickListener {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = "Tag." + MainActivity.class.getSimpleName();
     private static final String NEWS_SOURCE = "techcrunch";
 
     /**
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements
             Article article = new Article();
             article.setTitle("Ini Merupakakan Title untuk menampilkan max line dari textview");
             article.setDescription("Ini merupakan deskripsi yang merupakan data random, yang bisa di copas. Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.Ini merupakan deskripsi yang merupakan data random, yang bisa di copas.");
-            article.setUrlToImage("https://tctechcrunch2011.files.wordpress.com/2017/08/aug_chart_1.png?w=764&h=400&crop=1");
+            article.setUrlToImage("http://tctechcrunch2011.files.wordpress.com/2017/08/aug_chart_1.png?w=764&h=400&crop=1");
             articles.add(article);
         }
 

@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 
 public class TesActivity extends AppCompatActivity {
 
-    private static final String URL = "https://techcrunch.com" +
+    private static final String URL = "http://techcrunch.com" +
             "/2017/08/11" +
             "/uber-shareholder-group-asks-benchmark-to-step-down-from-board-following-kalanick-suit/";
 
